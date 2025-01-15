@@ -7,6 +7,7 @@ services:
       - 3000
     environment:
       - REDIS_URL=redis://default:password@redis:6379/0
+      - CUSTOM_ENV=${CUSTOM_ENV}
     depends_on:
       - redis
     networks:
