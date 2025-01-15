@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "build": "esbuild --bundle src/index.tsx --platform=node --outfile=dist/index.js"
+    "build": "esbuild --bundle src/index.ts --platform=node --outfile=dist/index.js"
   },
   "dependencies": {
     "@hono/node-server": "^1.13.7",
