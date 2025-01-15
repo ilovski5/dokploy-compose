@@ -3,8 +3,6 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    volumes:
-      - ./backend:/app
     expose:
       - 3000
     environment:
