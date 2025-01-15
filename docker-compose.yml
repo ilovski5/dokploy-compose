@@ -11,6 +11,11 @@ services:
       - redis
     networks:
       - dokploy-network
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.backend-app.rule=Host(`backend.neatapps.dev`)
+      - traefik.http.routers.backend-app.entrypoints=web
+      - traefik.http.services.backend-app.loadbalancer.server.port=5000
 
   redis:
     image: redis
