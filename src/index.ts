@@ -12,7 +12,7 @@ app.get("/", async (c) => {
   const res = await redis.ping();
   console.log(res);
 
-  return c.text("Hello Hono!");
+  return c.text(JSON.stringify(process.env, null, 2));
 });
 
 const port = 3000;
