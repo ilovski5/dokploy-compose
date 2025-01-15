@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "build": "tsc"
+    "build": "esbuild --bundle src/index.tsx --platform=node --outfile=dist/index.js"
   },
   "dependencies": {
     "@hono/node-server": "^1.13.7",
@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.17.13",
+    "esbuild": "^0.24.2",
     "tsx": "^4.7.1",
     "typescript": "^5.7.3"
   }
