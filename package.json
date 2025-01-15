@@ -2,14 +2,17 @@
   "name": "dokploy-compose",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/index.ts"
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc"
   },
   "dependencies": {
     "@hono/node-server": "^1.13.7",
-    "hono": "^4.6.16"
+    "hono": "^4.6.16",
+    "ioredis": "^5.4.2"
   },
   "devDependencies": {
-    "@types/node": "^20.11.17",
-    "tsx": "^4.7.1"
+    "@types/node": "^20.17.13",
+    "tsx": "^4.7.1",
+    "typescript": "^5.7.3"
   }
 }

@@ -1,0 +1,38 @@
+services:
+  backend:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend:/app
+    expose:
+      - 3000
+    environment:
+      - REDIS_URL=redis://default:password@redis:6379/0
+    depends_on:
+      - redis
+    networks:
+      - dokploy-network
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.backend-app.rule=Host(`backend.neatapps.dev`)
+      - traefik.http.routers.backend-app.entrypoints=web
+      - traefik.http.services.backend-app.loadbalancer.server.port=5000
+
+  redis:
+    image: redis
+    restart: always
+    # ports:
+    #   - "6379:6379"
+    environment:
+      REDIS_PASSWORD: password
+    networks:
+      - dokploy-network
+    command: /bin/sh -c 'redis-server --appendonly yes --requirepass $${REDIS_PASSWORD}'
+
+volumes:
+  db-data:
+
+networks:
+  dokploy-network:
+    external: true
